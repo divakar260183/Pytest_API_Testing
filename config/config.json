@@ -1,0 +1,10 @@
+{
+  "environment": "decoupling",
+  "baseURL" : [
+    {
+      "autoPortal": "https://autoportal.comm100dev.io/api",
+      "decoupling": "https://decouplingdash.testing.comm100dev.io/api"
+    }
+  ],
+  "loginAPIPath": "/global/jwttoken/logintest"
+}

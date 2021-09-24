@@ -1,0 +1,18 @@
+{
+  "userData": [
+    {
+      "autoPortal":
+        {
+          "email": "testdiva@autoportal.com",
+          "password": "111111"
+        }
+    },
+    {
+      "decoupling":
+        {
+          "email": "divakar@bdd.com",
+          "password": "111111"
+        }
+    }
+  ]
+}
