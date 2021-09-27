@@ -14,9 +14,8 @@ class AgentLogin:
         self.__site_id = None
         self.__agent_id = None
 
-    def login(self):
+    def login(self, environment):
         config_data_json_dict = read_config_file('config.json')
-        environment = config_data_json_dict['environment']
         user_data_json_dict = read_test_data_file('userData.json')
         user_data_json = get_value_for_key(user_data_json_dict['userData'], environment)
         self.__baseURL = get_value_for_key(config_data_json_dict['baseURL'], environment)

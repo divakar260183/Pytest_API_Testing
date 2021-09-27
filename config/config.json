@@ -1,5 +1,4 @@
 {
-  "environment": "decoupling",
   "baseURL" : [
     {
       "autoPortal": "https://autoportal.comm100dev.io/api",

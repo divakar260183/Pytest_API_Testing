@@ -5,10 +5,15 @@ from util.file_reader import read_test_data_file
 from util.utilities import get_value_for_key
 
 
+def pytest_addoption(parser):
+    parser.addoption('--environment', action="store", default="decoupling")
+
+
 @pytest.fixture(scope='session')
-def login():
+def login(request):
     login = AgentLogin()
-    login.login()
+    environment = request.config.getoption("--environment")
+    login.login(environment)
     yield login
     login.close()
 
