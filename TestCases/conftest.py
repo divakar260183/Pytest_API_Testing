@@ -1,7 +1,7 @@
 import pytest
 
 from login_func import AgentLogin
-from util.file_reader import read_test_data_file
+from util.file_reader import read_test_data_file, read_input_file
 from util.utilities import get_value_for_key
 
 
@@ -33,6 +33,7 @@ def request_data(test_data):
 def pytest_generate_tests(metafunc):
     if 'test_data' not in metafunc.fixturenames:
         return
+    read_input_file("InputData.csv", "Test_Data.json")
     testdata = read_test_data_file('testData.json')
     data = get_value_for_key(testdata.get('data', None), metafunc.module.module_name)
     metafunc.parametrize('test_data', data)

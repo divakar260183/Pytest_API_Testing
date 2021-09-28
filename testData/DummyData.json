@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "requestType": "XXX",
+      "path": "XXX",
+      "headers": "XXX",
+      "param": "XXX",
+      "requestBody": "XXX",
+      "responseCode": "XXX",
+      "responseSchema": "XXX"
+    }
+  ]
+}
