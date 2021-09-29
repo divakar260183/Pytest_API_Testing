@@ -1,6 +1,7 @@
 import pytest
 
 from login_func import AgentLogin
+from util.devazureTestDataFileDownloader import download_test_data_file
 from util.file_reader import read_test_data_file, read_input_file
 
 
@@ -16,6 +17,7 @@ def test_data(request):
 def pytest_generate_tests(metafunc):
     if 'test_data' not in metafunc.fixturenames:
         return
+    download_test_data_file("InputData.csv")
     read_input_file("InputData.csv", "Test_Data.json")
     input_data = read_test_data_file('Test_Data.json')
     data = input_data.get('data', None)
@@ -39,7 +41,6 @@ def request_url(login, test_data):
 
 @pytest.fixture
 def request_header(login, test_data):
-    header = None
     header_array = test_data['headers'].split(" ")
     if test_data['requestType'] == 'POST':
         header = {header_array[0]: header_array[1] + " " + login.get_token(),
