@@ -26,8 +26,6 @@ class AgentLogin:
         self.__token = login_response_dict['jwtToken']
         self.__site_id = login_response_dict['siteId']
         self.__agent_id = login_response_dict['agentId']
-        self.__header_get_request = {"Authorization": "Bearer " + self.__token}
-        self.__header_post_request = {"Authorization": "Bearer " + self.__token, "Content-Type": "application/json"}
 
     def get_token(self):
         return self.__token
@@ -38,17 +36,8 @@ class AgentLogin:
     def get_site_id(self):
         return self.__site_id
 
-    def get_param(self):
-        return {'siteId': self.__site_id}
-
     def get_agent_id(self):
         return self.__agent_id
-
-    def get_header_get_request(self):
-        return self.__header_get_request
-
-    def get_header_post_request(self):
-        return self.__header_post_request
 
     def close(self):
         pass

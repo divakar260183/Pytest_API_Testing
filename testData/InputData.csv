@@ -2,16 +2,27 @@ FieldType,FieldValue,Key,Value
 requestType,GET,,
 path,/ticketing/channelAccounts,,
 headers,,Authorization,Bearer token
-param,,,
+param,,siteId,siteIdValue
 requestBody,,,
 responseCode,200,,
 responseSchema,,,
 End_Request,Add,,
 requestType,POST,,
 path,/ticketing/channelAccounts,,
-headers,,Authorization,Bearer token
+headers,,Authorization,Bearer token Content-Type application/json
 param,,,
-requestBody,,,
+requestBody,"{
+				""appId"": ""LINE"",
+				""originalAccountId"": ""1234567890"",
+				""name"": ""Test Divakar"",
+				""isEnabled"": true,
+				""isDefault"": false,
+				""screenName"": ""test"",
+				""isDeleted"": false,
+				""isBotEnabled"": true,
+				""percentageToBotWhenOnline"": 0,
+				""percentageToBotWhenOffline"": 0
+			}",,
 responseCode,201,,
 responseSchema,,,
 End_Request,End,,
