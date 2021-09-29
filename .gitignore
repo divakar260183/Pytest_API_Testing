@@ -4,3 +4,4 @@
 .idea
 .pytest_cache
 util/__pycache__/
+TestCases/__pycache__/
