@@ -1,17 +1,17 @@
 FieldType,FieldValue,Key,Value
-Request Type,GET,,
-API Path,/ticketing/channelAccounts,,
-Headers,,Authorization,Bearer token
-Param,,,
-Request Body,,,
-Response Code,200,,
-Response Schema,,,
+requestType,GET,,
+path,/ticketing/channelAccounts,,
+headers,,Authorization,Bearer token
+param,,,
+requestBody,,,
+responseCode,200,,
+responseSchema,,,
 End_Request,Add,,
-Request Type,POST,,
-API Path,/ticketing/channelAccounts,,
-Headers,,Authorization,Bearer token
-Param,,,
-Request Body,,,
-Response Code,201,,
-Response Schema,,,
+requestType,POST,,
+path,/ticketing/channelAccounts,,
+headers,,Authorization,Bearer token
+param,,,
+requestBody,,,
+responseCode,201,,
+responseSchema,,,
 End_Request,End,,
