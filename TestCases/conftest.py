@@ -1,3 +1,5 @@
+import json
+
 import pytest
 
 from login_func import AgentLogin
@@ -58,3 +60,29 @@ def request_param(login, test_data):
         if param_array[0] == 'siteId':
             param = {'siteId': login.get_site_id()}
     return param
+
+
+@pytest.fixture
+def request_type(test_data):
+    return test_data['requestType']
+
+
+@pytest.fixture
+def request_body(test_data):
+    body = None
+    if 'requestBody' in test_data:
+        body = json.loads(test_data['requestBody'])
+    return body
+
+
+@pytest.fixture
+def response_code(test_data):
+    return int(test_data['responseCode'])
+
+
+@pytest.fixture
+def response_schema(test_data):
+    response_schema = None
+    if 'responseSchema' in test_data:
+        response_schema = json.loads(test_data['responseSchema'])
+    return response_schema

@@ -1,5 +1,4 @@
 import os
-import pprint
 import urllib
 
 from azure.devops.connection import Connection
@@ -25,7 +24,7 @@ def download_test_data_file(file_name):
     found = False
     while get_projects_response is not None:
         for project in get_projects_response.value:
-            pprint.pprint("[" + str(index) + "] " + project.name)
+            print("[" + str(index) + "] " + project.name)
             index += 1
             if project.name == "APIAutomation":
                 # call to access wiki page

@@ -1,14 +1,15 @@
 import requests
 
 
-def test_api_request(login, request_url, test_data, request_header, request_param):
+def test_api_request(login, request_url, request_type, request_header, request_param, request_body,
+                     response_code, response_schema):
     response = None
-    if test_data['requestType'] == 'GET':
+    if request_type == 'GET':
         response = requests.get(request_url, headers=request_header)
     else:
-        if test_data['requestType'] == 'POST':
-            response = requests.post(request_url, json=test_data['requestBody'], headers=request_header)
+        if request_type == 'POST':
+            response = requests.post(request_url, json=request_body, headers=request_header)
         else:
-            if test_data['requestType'] == 'DELETE':
+            if request_type == 'DELETE':
                 response = requests.delete(request_url, headers=request_header)
-    print("response.code :", response.status_code)
+    assert response.status_code == response_code, "Response Code is not correct"
