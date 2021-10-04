@@ -3,7 +3,8 @@ import json
 import pytest
 
 from login_func import AgentLogin
-from util.file_reader import read_input_file, read_test_data_file
+from util.file_reader import read_input_file, read_test_data_file, read_config_file
+from util.utilities import get_value_for_key
 
 
 def pytest_addoption(parser):
@@ -34,8 +35,11 @@ def login(request):
 
 
 @pytest.fixture
-def request_url(login, test_data):
-    url = login.get_base_url() + test_data['path']
+def request_url(request, test_data):
+    config_data_json_dict = read_config_file('config.json')
+    environment = request.config.getoption("--environment")
+    base_url = get_value_for_key(config_data_json_dict['baseURL'], environment)
+    url = base_url + test_data['path']
     return url
 
 
@@ -84,3 +88,9 @@ def response_schema(test_data):
     if 'responseSchema' in test_data:
         response_schema = json.loads(test_data['responseSchema'])
     return response_schema
+
+
+@pytest.fixture
+def is_login_required(test_data):
+    if 'isLoginRequired' in test_data:
+        return test_data['isLoginRequired']

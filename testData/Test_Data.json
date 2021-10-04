@@ -4,14 +4,16 @@
             "requestType": "GET",
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token",
-            "responseCode": "200"
+            "responseCode": "200",
+            "isLoginRequired": "TRUE"
         },
         {
             "requestType": "POST",
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token Content-Type application/json",
             "requestBody": "{\n\t\t\t\t\"appId\": \"LINE\",\n\t\t\t\t\"originalAccountId\": \"1234567890\",\n\t\t\t\t\"name\": \"Test Divakar\",\n\t\t\t\t\"isEnabled\": true,\n\t\t\t\t\"isDefault\": false,\n\t\t\t\t\"screenName\": \"test\",\n\t\t\t\t\"isDeleted\": false,\n\t\t\t\t\"isBotEnabled\": true,\n\t\t\t\t\"percentageToBotWhenOnline\": 0,\n\t\t\t\t\"percentageToBotWhenOffline\": 0\n\t\t\t}",
-            "responseCode": "201"
+            "responseCode": "201",
+            "isLoginRequired": "FALSE"
         }
     ]
 }

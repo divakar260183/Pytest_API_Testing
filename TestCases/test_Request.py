@@ -2,9 +2,9 @@ import requests
 
 
 def test_api_request(login, request_url, request_type, request_header, request_param, request_body,
-                     response_code, response_schema):
+                     response_code, response_schema, is_login_required):
     response = None
-    if request_type == 'GET':
+    if request_type == 'GET' and is_login_required:
         response = requests.get(request_url, headers=request_header)
     else:
         if request_type == 'POST':
