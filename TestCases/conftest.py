@@ -3,8 +3,7 @@ import json
 import pytest
 
 from login_func import AgentLogin
-from util.devazureTestDataFileDownloader import download_test_data_file
-from util.file_reader import read_test_data_file, read_input_file
+from util.file_reader import read_input_file, read_test_data_file
 
 
 def pytest_addoption(parser):
@@ -19,7 +18,6 @@ def test_data(request):
 def pytest_generate_tests(metafunc):
     if 'test_data' not in metafunc.fixturenames:
         return
-    download_test_data_file("InputData.csv")
     read_input_file("InputData.csv", "Test_Data.json")
     input_data = read_test_data_file('Test_Data.json')
     data = input_data.get('data', None)
