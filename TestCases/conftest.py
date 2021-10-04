@@ -93,4 +93,4 @@ def response_schema(test_data):
 @pytest.fixture
 def is_login_required(test_data):
     if 'isLoginRequired' in test_data:
-        return test_data['isLoginRequired']
+        return bool(test_data['isLoginRequired'])
