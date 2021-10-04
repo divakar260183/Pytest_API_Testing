@@ -49,7 +49,6 @@ def read_input_file(csv_file_name, json_file_name):
     if os.path.exists(csv_file_path):
         with csv_file_path.open(mode='r') as csv_file:
             reader = csv.DictReader(csv_file)
-            counter = 0
             data = []
             for row in reader:
                 data_row = {}
@@ -57,7 +56,6 @@ def read_input_file(csv_file_name, json_file_name):
                     if row[columns]:
                         data_row[columns] = row[columns]
                 data.append(data_row)
-                counter = counter + 1
             json_dump = {"data": data}
         write_test_data_json(json_dump, json_file_name)
     else:
