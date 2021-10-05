@@ -1,4 +1,7 @@
+import json
+
 import requests
+from jsonschema import validate
 
 
 def test_api_request(request_url, request_type, request_header, request_param, request_body,
@@ -22,3 +25,9 @@ def test_api_request(request_url, request_type, request_header, request_param, r
     print("content :", response.content)
     print("response schema :", response_schema)
     assert response.status_code == response_code, "Response Code is not correct"
+    response_data = json.loads(response.content)
+    if isinstance(response_data, list):
+        for data in response_data:
+            validate(instance=data, schema=response_schema)
+    else:
+        validate(instance=response_data, schema=response_schema)
