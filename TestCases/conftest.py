@@ -102,5 +102,5 @@ def test_name(test_data):
 
 
 @pytest.fixture
-def test_name(test_data):
+def test_id(test_data):
     return test_data['TestId']
