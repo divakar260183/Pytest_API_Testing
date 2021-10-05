@@ -19,4 +19,6 @@ def test_api_request(request_url, request_type, request_header, request_param, r
             response = requests.post(request_url, json=request_body)
         elif request_type == 'DELETE':
             response = requests.delete(request_url)
+    print("content :", response.content)
+    print("response schema :", response_schema)
     assert response.status_code == response_code, "Response Code is not correct"
