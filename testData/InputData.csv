@@ -1,6 +1,6 @@
-requestType,path,headers,param,requestBody,responseCode,responseSchema,isLoginRequired
-GET,/ticketing/channelAccounts,Authorization Bearer token,,,200,,TRUE
-POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
+TestId,TestName,requestType,path,headers,param,requestBody,responseCode,responseSchema,isLoginRequired
+1,ChannelAccounts_GET,GET,/ticketing/channelAccounts,Authorization Bearer token,,,200,,TRUE
+2,ChannelAccounts_Post,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
 				""appId"": ""LINE"",
 				""originalAccountId"": ""1234567890"",
 				""name"": ""Test Divakar"",

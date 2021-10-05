@@ -1,6 +1,8 @@
 {
     "data": [
         {
+            "TestId": "1",
+            "TestName": "ChannelAccounts_GET",
             "requestType": "GET",
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token",
@@ -8,6 +10,8 @@
             "isLoginRequired": "TRUE"
         },
         {
+            "TestId": "2",
+            "TestName": "ChannelAccounts_Post",
             "requestType": "POST",
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token Content-Type application/json",
