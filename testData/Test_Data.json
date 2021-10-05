@@ -7,17 +7,51 @@
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token",
             "responseCode": "200",
+            "responseSchema": "[\n   {\n      \"id\":\"XXXX\",\n      \"appId\":\"XXXX\",\n      \"originalAccountId\":\"XXXX\",\n      \"name\":\"XXXX\",\n      \"isEnabled\":true,\n      \"isDefault\":false,\n      \"avatarUrl\":\"\",\n      \"screenName\":\"XXXX\",\n      \"isBotEnabled\":false,\n      \"chatbotId\":\"XXXX\",\n      \"percentageToBotWhenOnline\":0,\n      \"percentageToBotWhenOffline\":0,\n      \"createdTime\":\"XXXX\",\n      \"isDeleted\":false\n   }\n]",
             "isLoginRequired": "TRUE"
         },
         {
             "TestId": "2",
-            "TestName": "ChannelAccounts_Post",
+            "TestName": "Create_Line_Channel",
             "requestType": "POST",
             "path": "/ticketing/channelAccounts",
             "headers": "Authorization Bearer token Content-Type application/json",
             "requestBody": "{\n\t\t\t\t\"appId\": \"LINE\",\n\t\t\t\t\"originalAccountId\": \"1234567890\",\n\t\t\t\t\"name\": \"Test Divakar\",\n\t\t\t\t\"isEnabled\": true,\n\t\t\t\t\"isDefault\": false,\n\t\t\t\t\"screenName\": \"test\",\n\t\t\t\t\"isDeleted\": false,\n\t\t\t\t\"isBotEnabled\": true,\n\t\t\t\t\"percentageToBotWhenOnline\": 0,\n\t\t\t\t\"percentageToBotWhenOffline\": 0\n\t\t\t}",
             "responseCode": "201",
-            "isLoginRequired": "FALSE"
+            "responseSchema": "{\n   \"id\":\"397d7162-6064-45cd-8c51-ecc0d2ae0f2c\",\n   \"appId\":\"LINE\",\n   \"originalAccountId\":\"1234567890\",\n   \"name\":\"Test Divakar\",\n   \"isEnabled\":true,\n   \"isDefault\":false,\n   \"avatarUrl\":\"\",\n   \"screenName\":\"test\",\n   \"isBotEnabled\":true,\n   \"chatbotId\":\"00000000-0000-0000-0000-000000000000\",\n   \"percentageToBotWhenOnline\":0,\n   \"percentageToBotWhenOffline\":0,\n   \"createdTime\":\"2021-10-05T04:38:46.27Z\",\n   \"isDeleted\":false\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "TestId": "3",
+            "TestName": "Create_Email_Exchange_Channel",
+            "requestType": "POST",
+            "path": "/ticketing/channelAccounts",
+            "headers": "Authorization Bearer token Content-Type application/json",
+            "requestBody": "{\n\t\t\t\t\"appId\": \"Email\",\n\t\t\t\"originalAccountId\": \"divakar.mishra@comm100.com\",\n\t\t\t\"name\": \"Divakar\",\n\t\t\t\"isEnabled\": true,\n\t\t\t\"avatarUrl\": \"\",\n\t\t\t\"screenName\": \"Divakar\",\n\t\t\t\"isBotEnabled\": false,\n\t\t\t\"percentageToBotWhenOnline\": 0,\n\t\t\t\"percentageToBotWhenOffline\": 0,\n\t\t\t\"isDefault\": false,\n\t\t\t\"emailAccountInfo\": \"{\\\"Type\\\":2,\\\"UserName\\\":\\\"divakar.mishra@comm100.com\\\",\\\"Password\\\":\\\"bxBYlHyAEVQLiNKSBE225oL48CWTBce/\\\",\\\"SenderName\\\":\\\"divakar\\\",\\\"ServerAddress\\\":\\\"\\\",\\\"Port\\\":0,\\\"IfSSL\\\":false,\\\"ServerURL\\\":\\\"https://outlook.office365.com/EWS/Exchange.asmx\\\",\\\"IfSmtpRequiredAuthentication\\\":true,\\\"SmtpServerAddress\\\":\\\"\\\",\\\"SmtpPort\\\":0,\\\"SmtpUserName\\\":\\\"\\\",\\\"SmtpPassword\\\":\\\"fiaXm+fZGmE=\\\",\\\"SmtpEncrytedConnectionType\\\":3,\\\"IfPollSuccess\\\":true,\\\"LastPollTime\\\":\\\"2021-09-17T06:59:13.4844347Z\\\",\\\"FailReason\\\":\\\"\\\",\\\"FirstPollStatus\\\":1,\\\"ContinousErrorCount\\\":0}\"\n\t\t\t}",
+            "responseCode": "201",
+            "responseSchema": "{\n   \"id\":\"1eab9c9f-8b27-4b30-8dfd-5243746a1f11\",\n   \"appId\":\"Email\",\n   \"originalAccountId\":\"divakar.mishra@comm100.com\",\n   \"name\":\"Divakar\",\n   \"isEnabled\":true,\n   \"isDefault\":false,\n   \"avatarUrl\":\"\",\n   \"screenName\":\"Divakar\",\n   \"isBotEnabled\":false,\n   \"chatbotId\":\"00000000-0000-0000-0000-000000000000\",\n   \"percentageToBotWhenOnline\":0,\n   \"percentageToBotWhenOffline\":0,\n   \"createdTime\":\"2021-10-05T04:38:46.6833333Z\",\n   \"isDeleted\":false\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "TestId": "4",
+            "TestName": "Create_Email_POP3_Channel",
+            "requestType": "POST",
+            "path": "/ticketing/channelAccounts",
+            "headers": "Authorization Bearer token Content-Type application/json",
+            "requestBody": "{\n\t\t\t\t\"appId\": \"Email\",\n\t\t\t\"originalAccountId\": \"divakar@comm100indiadev.in\",\n\t\t\t\"name\": \"Divakar Mishra\",\n\t\t\t\"isEnabled\": true,\n\t\t\t\"avatarUrl\": \"\",\n\t\t\t\"screenName\": \"divakar@comm100indiadev.in\",\n\t\t\t\"isBotEnabled\": false,\n\t\t\t\"percentageToBotWhenOnline\": 0,\n\t\t\t\"percentageToBotWhenOffline\": 0,\n\t\t\t\"isDefault\": false,\n\t\t\t\"emailAccountInfo\": \"{\\\"Type\\\":1,\\\"UserName\\\":\\\"divakar@comm100indiadev.in\\\",\\\"Password\\\":\\\"0SRBTP1xMMHM3OyQ30vSYQyU2b5UUEUj\\\",\\\"SenderName\\\":\\\"divakar\\\",\\\"ServerAddress\\\":\\\"mail.comm100indiadev.in\\\",\\\"Port\\\":995,\\\"IfSSL\\\":true,\\\"ServerURL\\\":\\\"\\\",\\\"IfSmtpRequiredAuthentication\\\":true,\\\"SmtpServerAddress\\\":\\\"mail.comm100indiadev.in\\\",\\\"SmtpPort\\\":465,\\\"SmtpUserName\\\":\\\"divakar@comm100indiadev.in\\\",\\\"SmtpPassword\\\":\\\"0SRBTP1xMMHM3OyQ30vSYQyU2b5UUEUj\\\",\\\"SmtpEncrytedConnectionType\\\":1,\\\"IfPollSuccess\\\":true,\\\"LastPollTime\\\":\\\"2021-09-17T06:59:13.4844347Z\\\",\\\"FailReason\\\":\\\"\\\",\\\"FirstPollStatus\\\":1,\\\"ContinousErrorCount\\\":0}\"\n}",
+            "responseCode": "201",
+            "responseSchema": "{\n   \"id\":\"b5e96ed0-2925-497d-9107-2c2aba0048cc\",\n   \"appId\":\"Email\",\n   \"originalAccountId\":\"divakar@comm100indiadev.in\",\n   \"name\":\"Divakar Mishra\",\n   \"isEnabled\":true,\n   \"isDefault\":false,\n   \"avatarUrl\":\"\",\n   \"screenName\":\"divakar@comm100indiadev.in\",\n   \"isBotEnabled\":false,\n   \"chatbotId\":\"00000000-0000-0000-0000-000000000000\",\n   \"percentageToBotWhenOnline\":0,\n   \"percentageToBotWhenOffline\":0,\n   \"createdTime\":\"2021-10-05T04:38:47.36Z\",\n   \"isDeleted\":false\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "TestId": "5",
+            "TestName": "Get_Shifts",
+            "requestType": "GET",
+            "path": "/livechat/shifts",
+            "headers": "Authorization Bearer token",
+            "responseCode": "200",
+            "responseSchema": "{\n   \"shifts\":[\n      {\n         \"id\":\"XXXX\",\n         \"name\":\"XXXX\",\n         \"timeZone\":\"XXXX\",\n         \"autoDetectDayLightSavingsTime\":\"XXXX\",\n         \"agentIds\":[\n            \"XXXX\"\n         ],\n         \"departmentIds\":[\n            \"XXXX\"\n         ],\n         \"shiftHolidays\":[\n            {\n               \"id\":\"XXXX\",\n               \"shiftId\":\"XXXX\",\n               \"name\":\"XXXX\",\n               \"holidayDate\":\"XXXX\"\n            }\n         ],\n         \"shiftWorkingHours\":[\n            {\n               \"id\":\"XXXX\",\n               \"shiftId\":\"XXXX\",\n               \"dayOfWeek\":\"XXXX\",\n               \"startTime\":\"XXXX\",\n               \"endTime\":\"XXXX\",\n               \"agentAwayStatusId\":\"XXXX\"\n            }\n         ]\n      }\n   ],\n   \"nextPage\":\"XXX\",\n   \"previousPage\":\"XXX\",\n   \"total\":\"XXXX\"\n}",
+            "isLoginRequired": "TRUE"
         }
     ]
 }
