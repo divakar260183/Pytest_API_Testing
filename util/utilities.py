@@ -28,24 +28,32 @@ def validate_schema(actual_data, expected_data):
 
 
 def validate_response_data(actual_data, expected_data):
+    data_found = False
     if isinstance(expected_data, list):
         for exp_data in expected_data:
+            data_found = False
             if isinstance(actual_data, list):
                 for act_data in actual_data:
                     if json_compare(act_data, exp_data):
+                        data_found = True
                         break
-            else:
-                json_compare(actual_data, exp_data)
+            elif json_compare(actual_data, exp_data):
+                data_found = True
+                break
     elif isinstance(actual_data, list):
         for act_data in actual_data:
             if json_compare(act_data, expected_data):
+                data_found = True
                 break
+    elif json_compare(actual_data, expected_data):
+        data_found = True
     else:
-        json_compare(actual_data, expected_data)
+        data_found = False
+    assert data_found is True, "Data is not found in response"
 
 
 def json_compare(actual_json, expected_json):
-    matched = None
+    matched = True
     for key in actual_json.keys():
         if key in expected_json.keys():
             if type(actual_json[key]) == dict:
