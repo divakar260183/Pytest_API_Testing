@@ -42,6 +42,16 @@
             "responseCode": "201",
             "responseSchema": "{\n   \"id\":\"XXX\",\n   \"appId\":\"Email\",\n   \"originalAccountId\":\"divakar@comm100indiadev.in\",\n   \"name\":\"Divakar Mishra\",\n   \"isEnabled\":true,\n   \"isDefault\":false,\n   \"avatarUrl\":\"\",\n   \"screenName\":\"divakar@comm100indiadev.in\",\n   \"isBotEnabled\":false,\n   \"chatbotId\":\"XXX\",\n   \"percentageToBotWhenOnline\":0,\n   \"percentageToBotWhenOffline\":0,\n   \"createdTime\":\"XXX\",\n   \"isDeleted\":false\n}",
             "isLoginRequired": "TRUE"
+        },
+        {
+            "ScenarioId": "5",
+            "ScenarioName": "Shifts_GET",
+            "requestType": "GET",
+            "path": "/livechat/shifts",
+            "headers": "Authorization Bearer token",
+            "responseCode": "200",
+            "responseSchema": "{\n    \"shifts\": [\n        {\n            \"id\": \"XXX\",\n            \"name\": \"Day Shift\",\n            \"timeZone\": \"India Standard Time\",\n            \"autoDetectDayLightSavingsTime\": false,\n            \"agentIds\": [\n                \"XXX\"\n            ],\n            \"departmentIds\": [],\n            \"shiftHolidays\": [\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"name\": \"Day Shift Holiday\",\n                    \"holidayDate\": \"2021-09-21\"\n                }\n            ],\n            \"shiftWorkingHours\": [\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Monday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Tuesday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Wednesday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Thursday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Friday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                }\n            ]\n        }\n    ],\n    \"nextPage\": \"XXX\",\n    \"previousPage\": \"XXX\",\n    \"total\": \"XXX\"\n}",
+            "isLoginRequired": "TRUE"
         }
     ]
 }

@@ -56,8 +56,19 @@ def json_compare(actual_json, expected_json):
     matched = True
     for key in actual_json.keys():
         if key in expected_json.keys():
-            if type(actual_json[key]) == dict:
+            if isinstance(actual_json[key], dict):
                 json_compare(actual_json[key], expected_json[key])
+            elif isinstance(actual_json[key], list):
+                if not isinstance(expected_json[key], list):
+                    matched = False
+                else:
+                    for act_data in actual_json[key]:
+                        for exp_data in expected_json[key]:
+                            if isinstance(act_data, dict):
+                                if json_compare(act_data, exp_data):
+                                    break
+                            elif act_data != exp_data and exp_data != "XXX":
+                                matched = False
             elif expected_json[key] != "XXX":
                 if actual_json[key] != expected_json[key]:
                     matched = False

@@ -148,3 +148,70 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
    ""createdTime"":""XXX"",
    ""isDeleted"":false
 }",TRUE
+5,Shifts_GET,GET,/livechat/shifts,Authorization Bearer token,,,200,"{
+    ""shifts"": [
+        {
+            ""id"": ""XXX"",
+            ""name"": ""Day Shift"",
+            ""timeZone"": ""India Standard Time"",
+            ""autoDetectDayLightSavingsTime"": false,
+            ""agentIds"": [
+                ""XXX""
+            ],
+            ""departmentIds"": [],
+            ""shiftHolidays"": [
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""name"": ""Day Shift Holiday"",
+                    ""holidayDate"": ""2021-09-21""
+                }
+            ],
+            ""shiftWorkingHours"": [
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""dayOfWeek"": ""Monday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00"",
+                    ""agentAwayStatusId"": ""XXX""
+                },
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""dayOfWeek"": ""Tuesday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00"",
+                    ""agentAwayStatusId"": ""XXX""
+                },
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""dayOfWeek"": ""Wednesday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00"",
+                    ""agentAwayStatusId"": ""XXX""
+                },
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""dayOfWeek"": ""Thursday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00"",
+                    ""agentAwayStatusId"": ""XXX""
+                },
+                {
+                    ""id"": ""XXX"",
+                    ""shiftId"": ""XXX"",
+                    ""dayOfWeek"": ""Friday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00"",
+                    ""agentAwayStatusId"": ""XXX""
+                }
+            ]
+        }
+    ],
+    ""nextPage"": ""XXX"",
+    ""previousPage"": ""XXX"",
+    ""total"": ""XXX""
+}",TRUE
