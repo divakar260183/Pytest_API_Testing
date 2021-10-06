@@ -31,12 +31,33 @@ def validate_response_data(actual_data, expected_data):
     if isinstance(expected_data, list):
         for exp_data in expected_data:
             for items in exp_data:
-                if exp_data[items] !="XXXX":
+                if exp_data[items] != "XXX":
                     if isinstance(actual_data, list):
                         for data in actual_data:
-                            assert exp_data[items] == data[items]
+                            if data[items] == exp_data[items]:
+                                notmached = True
+                            else:
+                              notmached = False
                     else:
-                        assert exp_data[items] == actual_data[items]
+                        actual_data[items] = "XXX"
+    else:
+        for items in expected_data:
+            if expected_data[items] == "XXX":
+                if isinstance(actual_data, list):
+                    for data in actual_data:
+                        data[items] = "XXX"
+                else:
+                    actual_data[items] = "XXX"
+
+        for exp_data in expected_data:
+            for items in exp_data:
+                if exp_data[items] == "XXX":
+                    if isinstance(actual_data, list):
+                        for data in actual_data:
+                            data[items] = "XXX"
+                    else:
+                        actual_data[items] = "XXX"
+
 
 
 
