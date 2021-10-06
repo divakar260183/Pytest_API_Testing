@@ -30,34 +30,32 @@ def validate_schema(actual_data, expected_data):
 def validate_response_data(actual_data, expected_data):
     if isinstance(expected_data, list):
         for exp_data in expected_data:
-            for items in exp_data:
-                if exp_data[items] != "XXX":
-                    if isinstance(actual_data, list):
-                        for data in actual_data:
-                            if data[items] == exp_data[items]:
-                                notmached = True
-                            else:
-                              notmached = False
-                    else:
-                        actual_data[items] = "XXX"
+            if isinstance(actual_data, list):
+                for act_data in actual_data:
+                    if json_compare(act_data, exp_data):
+                        break
+            else:
+                json_compare(actual_data, exp_data)
+    elif isinstance(actual_data, list):
+        for act_data in actual_data:
+            if json_compare(act_data, expected_data):
+                break
     else:
-        for items in expected_data:
-            if expected_data[items] == "XXX":
-                if isinstance(actual_data, list):
-                    for data in actual_data:
-                        data[items] = "XXX"
-                else:
-                    actual_data[items] = "XXX"
-
-        for exp_data in expected_data:
-            for items in exp_data:
-                if exp_data[items] == "XXX":
-                    if isinstance(actual_data, list):
-                        for data in actual_data:
-                            data[items] = "XXX"
-                    else:
-                        actual_data[items] = "XXX"
+        json_compare(actual_data, expected_data)
 
 
-
-
+def json_compare(actual_json, expected_json):
+    matched = None
+    for key in actual_json.keys():
+        if key in expected_json.keys():
+            if type(actual_json[key]) == dict:
+                json_compare(actual_json[key], expected_json[key])
+            elif expected_json[key] != "XXX":
+                if actual_json[key] != expected_json[key]:
+                    matched = False
+        else:
+            print("New key found :", key)
+    if matched is not True:
+        return False
+    else:
+        return True
