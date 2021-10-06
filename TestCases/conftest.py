@@ -97,10 +97,10 @@ def is_login_required(test_data):
 
 
 @pytest.fixture
-def test_name(test_data):
-    return test_data['TestName']
+def scenario_name(test_data):
+    return test_data['ScenarioName']
 
 
 @pytest.fixture
-def test_id(test_data):
-    return test_data['TestId']
+def scenario_id(test_data):
+    return test_data['ScenarioId']

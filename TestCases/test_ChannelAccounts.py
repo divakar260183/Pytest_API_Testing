@@ -13,7 +13,7 @@ def test_delete_channel_account(request_url, request_header, request_body):
     channel_accounts_response_dict = get_channel_accounts(request_url, request_header)
     for account in channel_accounts_response_dict:
         if account['appId'] == request_body['appId'] \
-                and account['originalAccountId'] ==request_body['originalAccountId'] and \
+                and account['originalAccountId'] == request_body['originalAccountId'] and \
                 account['name'] == request_body['name']:
             channel_accounts_delete_response = requests.delete(url=request_url + "/" + account['id'],
                                                                headers=request_header)
