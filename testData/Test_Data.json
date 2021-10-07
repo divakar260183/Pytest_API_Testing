@@ -52,6 +52,50 @@
             "responseCode": "200",
             "responseSchema": "{\n    \"shifts\": [\n        {\n            \"id\": \"XXX\",\n            \"name\": \"Day Shift\",\n            \"timeZone\": \"India Standard Time\",\n            \"autoDetectDayLightSavingsTime\": false,\n            \"agentIds\": [\n                \"XXX\"\n            ],\n            \"departmentIds\": [],\n            \"shiftHolidays\": [\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"name\": \"Day Shift Holiday\",\n                    \"holidayDate\": \"2021-09-21\"\n                }\n            ],\n            \"shiftWorkingHours\": [\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Monday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Tuesday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Wednesday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Thursday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                },\n                {\n                    \"id\": \"XXX\",\n                    \"shiftId\": \"XXX\",\n                    \"dayOfWeek\": \"Friday\",\n                    \"startTime\": \"09:00:00\",\n                    \"endTime\": \"18:00:00\",\n                    \"agentAwayStatusId\": \"XXX\"\n                }\n            ]\n        }\n    ],\n    \"nextPage\": \"XXX\",\n    \"previousPage\": \"XXX\",\n    \"total\": \"XXX\"\n}",
             "isLoginRequired": "TRUE"
+        },
+        {
+            "ScenarioId": "6",
+            "ScenarioName": "ShiftsConfig_POST_Disable",
+            "requestType": "POST",
+            "path": "/livechat/shiftConfig:disable",
+            "headers": "Authorization Bearer token",
+            "param": "siteId siteIdValue",
+            "responseCode": "200",
+            "responseSchema": "{\n    \"isEnabled\": false\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "ScenarioId": "7",
+            "ScenarioName": "ShiftsConfig_POST_Enable",
+            "requestType": "POST",
+            "path": "/livechat/shiftConfig:enable",
+            "headers": "Authorization Bearer token",
+            "param": "siteId siteIdValue",
+            "responseCode": "200",
+            "responseSchema": "{\n    \"isEnabled\": true\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "ScenarioId": "8",
+            "ScenarioName": "ShiftsConfig_GET",
+            "requestType": "GET",
+            "path": "/livechat/shiftConfig",
+            "headers": "Authorization Bearer token",
+            "param": "siteId siteIdValue",
+            "responseCode": "200",
+            "responseSchema": "{\n    \"isEnabled\": true\n}",
+            "isLoginRequired": "TRUE"
+        },
+        {
+            "ScenarioId": "9",
+            "ScenarioName": "AgentAwayStatuses_GET",
+            "requestType": "GET",
+            "path": "/Global/agentAwayStatuses",
+            "headers": "Authorization Bearer token",
+            "param": "siteId siteIdValue",
+            "responseCode": "200",
+            "responseSchema": "[\n    {\n        \"id\": \"XXX\",\n        \"name\": \"Away\",\n        \"order\": 1,\n        \"isSystem\": true\n    }\n]",
+            "isLoginRequired": "TRUE"
         }
     ]
 }
