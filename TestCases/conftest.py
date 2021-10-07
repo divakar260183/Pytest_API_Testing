@@ -12,17 +12,17 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture
-def test_data(request):
+def request_data(request):
     yield request.param
 
 
 def pytest_generate_tests(metafunc):
-    if 'test_data' not in metafunc.fixturenames:
+    if 'request_data' not in metafunc.fixturenames:
         return
     read_input_file("InputData.csv", "Test_Data.json")
     input_data = read_test_data_file('Test_Data.json')
     data = input_data.get('data', None)
-    metafunc.parametrize('test_data', data, indirect=True)
+    metafunc.parametrize('request_data', data, indirect=True)
 
 
 @pytest.fixture(scope='session')
@@ -35,17 +35,17 @@ def login(request):
 
 
 @pytest.fixture
-def request_url(request, test_data):
+def request_url(request, request_data):
     config_data_json_dict = read_config_file('config.json')
     environment = request.config.getoption("--environment")
     base_url = get_value_for_key(config_data_json_dict['baseURL'], environment)
-    url = base_url + test_data['path']
+    url = base_url + request_data['path']
     return url
 
 
 @pytest.fixture
-def request_header(login, test_data):
-    header_array = test_data['headers'].split(" ")
+def request_header(login, request_data):
+    header_array = request_data['headers'].split(" ")
     if header_array.__len__() == 5:
         header = {header_array[0]: header_array[1] + " " + login.get_token(),
                   header_array[3]: header_array[4]}
@@ -57,52 +57,52 @@ def request_header(login, test_data):
 
 
 @pytest.fixture
-def request_param(login, test_data):
+def request_param(login, request_data):
     param = None
-    if 'param' in test_data:
-        param_array = test_data['param'].split(" ")
+    if 'param' in request_data:
+        param_array = request_data['param'].split(" ")
         if param_array[0] == 'siteId':
             param = {'siteId': login.get_site_id()}
     return param
 
 
 @pytest.fixture
-def request_type(test_data):
-    return test_data['requestType']
+def request_type(request_data):
+    return request_data['requestType']
 
 
 @pytest.fixture
-def request_body(test_data):
+def request_body(request_data):
     body = None
-    if 'requestBody' in test_data:
-        body = json.loads(test_data['requestBody'])
+    if 'requestBody' in request_data:
+        body = json.loads(request_data['requestBody'])
     return body
 
 
 @pytest.fixture
-def response_code(test_data):
-    return int(test_data['responseCode'])
+def response_code(request_data):
+    return int(request_data['responseCode'])
 
 
 @pytest.fixture
-def response_schema(test_data):
+def response_schema(request_data):
     response_schema = None
-    if 'responseSchema' in test_data:
-        response_schema = json.loads(test_data['responseSchema'])
+    if 'responseSchema' in request_data:
+        response_schema = json.loads(request_data['responseSchema'])
     return response_schema
 
 
 @pytest.fixture
-def is_login_required(test_data):
-    if 'isLoginRequired' in test_data:
-        return bool(test_data['isLoginRequired'])
+def is_login_required(request_data):
+    if 'isLoginRequired' in request_data:
+        return bool(request_data['isLoginRequired'])
 
 
 @pytest.fixture
-def scenario_name(test_data):
-    return test_data['ScenarioName']
+def scenario_name(request_data):
+    return request_data['ScenarioName']
 
 
 @pytest.fixture
-def scenario_id(test_data):
-    return test_data['ScenarioId']
+def scenario_id(request_data):
+    return request_data['ScenarioId']
