@@ -210,10 +210,7 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
                 }
             ]
         }
-    ],
-    ""nextPage"": ""XXX"",
-    ""previousPage"": ""XXX"",
-    ""total"": ""XXX""
+    ]
 }",TRUE
 6,ShiftsConfig_POST_Disable,POST,/livechat/shiftConfig:disable,Authorization Bearer token,siteId siteIdValue,,200,"{
     ""isEnabled"": false
