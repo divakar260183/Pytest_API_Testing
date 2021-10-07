@@ -33,23 +33,26 @@ def validate_response_data(actual_data, expected_data):
         for exp_data in expected_data:
             data_found = False
             if isinstance(actual_data, list):
-                for act_data in actual_data:
-                    if json_compare(act_data, exp_data):
-                        data_found = True
-                        break
+                data_found = act_data_compare(actual_data, exp_data)
             elif json_compare(actual_data, exp_data):
                 data_found = True
                 break
     elif isinstance(actual_data, list):
-        for act_data in actual_data:
-            if json_compare(act_data, expected_data):
-                data_found = True
-                break
+        data_found = act_data_compare(actual_data, expected_data)
     elif json_compare(actual_data, expected_data):
         data_found = True
     else:
         data_found = False
     assert data_found is True, "Data is not found in response"
+
+
+def act_data_compare(actual_data, expected_data):
+    data_found = False
+    for act_data in actual_data:
+        if json_compare(act_data, expected_data):
+            data_found = True
+            break
+    return data_found
 
 
 def json_compare(actual_json, expected_json):

@@ -46,11 +46,13 @@ def request_url(request, test_data):
 @pytest.fixture
 def request_header(login, test_data):
     header_array = test_data['headers'].split(" ")
-    if test_data['requestType'] == 'POST':
+    if header_array.__len__() == 5:
         header = {header_array[0]: header_array[1] + " " + login.get_token(),
                   header_array[3]: header_array[4]}
-    else:
+    elif header_array.__len__() == 3:
         header = {header_array[0]: header_array[1] + " " + login.get_token()}
+    else:
+        header = None
     return header
 
 

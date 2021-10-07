@@ -215,3 +215,20 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
     ""previousPage"": ""XXX"",
     ""total"": ""XXX""
 }",TRUE
+6,ShiftsConfig_POST_Disable,POST,/livechat/shiftConfig:disable,Authorization Bearer token,siteId siteIdValue,,200,"{
+    ""isEnabled"": false
+}",TRUE
+7,ShiftsConfig_POST_Enable,POST,/livechat/shiftConfig:enable,Authorization Bearer token,siteId siteIdValue,,200,"{
+    ""isEnabled"": true
+}",TRUE
+8,ShiftsConfig_GET,GET,/livechat/shiftConfig,Authorization Bearer token,siteId siteIdValue,,200,"{
+    ""isEnabled"": true
+}",TRUE
+9,AgentAwayStatuses_GET,GET,/Global/agentAwayStatuses,Authorization Bearer token,siteId siteIdValue,,200,"[
+    {
+        ""id"": ""XXX"",
+        ""name"": ""Away"",
+        ""order"": 1,
+        ""isSystem"": true
+    }
+]",TRUE
