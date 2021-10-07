@@ -24,7 +24,7 @@ def validate_schema(actual_data, expected_data):
         for data in actual_data:
             validate(instance=data, schema=schema)
     else:
-        validate(instance=expected_data, schema=schema)
+        validate(instance=actual_data, schema=schema)
 
 
 def validate_response_data(actual_data, expected_data):
