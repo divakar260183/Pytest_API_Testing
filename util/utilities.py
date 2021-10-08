@@ -56,28 +56,30 @@ def act_data_compare(actual_data, expected_data):
 
 
 def json_compare(actual_json, expected_json):
-    matched = True
-    for key in actual_json.keys():
-        if key in expected_json.keys():
+    for key in expected_json.keys():
+        if key in actual_json.keys():
             if isinstance(actual_json[key], dict):
                 json_compare(actual_json[key], expected_json[key])
             elif isinstance(actual_json[key], list):
                 if not isinstance(expected_json[key], list):
-                    matched = False
+                    return False
                 else:
-                    for act_data in actual_json[key]:
-                        for exp_data in expected_json[key]:
-                            if isinstance(act_data, dict):
+                    for exp_data in expected_json[key]:
+                        matched = True
+                        for act_data in actual_json[key]:
+                            if isinstance(exp_data, dict):
                                 if json_compare(act_data, exp_data):
+                                    matched = True
                                     break
-                            elif act_data != exp_data and exp_data != "XXX":
-                                matched = False
-            elif expected_json[key] != "XXX":
-                if actual_json[key] != expected_json[key]:
-                    matched = False
+                                else:
+                                    matched = False
+                            elif act_data != exp_data:
+                                return False
+                        if matched is False:
+                            return False
+            elif actual_json[key] != expected_json[key]:
+                return False
         else:
-            print("New key found :", key)
-    if matched is not True:
-        return False
-    else:
-        return True
+            print("Key not found in actual data:", key)
+            return False
+    return True

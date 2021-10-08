@@ -1,71 +1,74 @@
 ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,responseSchema,isLoginRequired
-1,ChannelAccounts_GET,GET,/ticketing/channelAccounts,Authorization Bearer token,,,200,"[
+1,Shifts_GET,GET,/livechat/shifts,Authorization Bearer token,,,200,"                {
+    ""shifts"": [
+        {
+            ""name"": ""Day Shift"",
+            ""timeZone"": ""India Standard Time"",
+            ""autoDetectDayLightSavingsTime"": false,
+            ""departmentIds"": [],
+            ""shiftHolidays"": [
+                {
+                    ""name"": ""Day Shift Holiday"",
+                    ""holidayDate"": ""2021-09-21""
+                }
+            ],
+            ""shiftWorkingHours"": [
+                {
+                    ""dayOfWeek"": ""Monday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00""
+                },
+                {
+                    ""dayOfWeek"": ""Tuesday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00""
+                },
+                {
+                    ""dayOfWeek"": ""Wednesday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00""
+                },
+                {
+                    ""dayOfWeek"": ""Thursday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00""
+                },
+                {
+                    ""dayOfWeek"": ""Friday"",
+                    ""startTime"": ""09:00:00"",
+                    ""endTime"": ""18:00:00""
+                }
+            ]
+        }
+    ]
+}",TRUE
+2,ChannelAccounts_GET,GET,/ticketing/channelAccounts,Authorization Bearer token,,,200,"[
    {
-   ""id"":""XXX"",
    ""appId"":""Email"",
    ""originalAccountId"":""divakar.mishra@comm100.com"",
    ""name"":""Divakar"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""Divakar"",
-   ""isBotEnabled"":false,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""Divakar""
 },
    {
-   ""id"":""XXX"",
    ""appId"":""Email"",
    ""originalAccountId"":""divakar@comm100indiadev.in"",
    ""name"":""Divakar Mishra"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""divakar@comm100indiadev.in"",
-   ""isBotEnabled"":false,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""divakar@comm100indiadev.in""
 },
    {
-   ""id"":""XXX"",
    ""appId"":""Facebook"",
    ""originalAccountId"":""1550951224925953"",
    ""name"":""Divine Academy"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":""XXX"",
-   ""screenName"":""Divine Academy"",
-   ""isBotEnabled"":true,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":100,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""Divine Academy""
 },
   {
-   ""id"":""XXX"",
    ""appId"":""LINE"",
    ""originalAccountId"":""1234567890"",
    ""name"":""Test Divakar"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""test"",
-   ""isBotEnabled"":true,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""test""
 }
 ]",TRUE
-2,Create_Line_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
+3,Create_Line_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
 				""appId"": ""LINE"",
 				""originalAccountId"": ""1234567890"",
 				""name"": ""Test Divakar"",
@@ -77,22 +80,11 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
 				""percentageToBotWhenOnline"": 0,
 				""percentageToBotWhenOffline"": 0
 			}",201,"{
-   ""id"":""XXX"",
-   ""appId"":""LINE"",
    ""originalAccountId"":""1234567890"",
    ""name"":""Test Divakar"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""test"",
-   ""isBotEnabled"":true,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""test""
 }",TRUE
-3,Create_Email_Exchange_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
+4,Create_Email_Exchange_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
 				""appId"": ""Email"",
 			""originalAccountId"": ""divakar.mishra@comm100.com"",
 			""name"": ""Divakar"",
@@ -105,22 +97,12 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
 			""isDefault"": false,
 			""emailAccountInfo"": ""{\""Type\"":2,\""UserName\"":\""divakar.mishra@comm100.com\"",\""Password\"":\""bxBYlHyAEVQLiNKSBE225oL48CWTBce/\"",\""SenderName\"":\""divakar\"",\""ServerAddress\"":\""\"",\""Port\"":0,\""IfSSL\"":false,\""ServerURL\"":\""https://outlook.office365.com/EWS/Exchange.asmx\"",\""IfSmtpRequiredAuthentication\"":true,\""SmtpServerAddress\"":\""\"",\""SmtpPort\"":0,\""SmtpUserName\"":\""\"",\""SmtpPassword\"":\""fiaXm+fZGmE=\"",\""SmtpEncrytedConnectionType\"":3,\""IfPollSuccess\"":true,\""LastPollTime\"":\""2021-09-17T06:59:13.4844347Z\"",\""FailReason\"":\""\"",\""FirstPollStatus\"":1,\""ContinousErrorCount\"":0}""
 			}",201,"{
-   ""id"":""XXX"",
    ""appId"":""Email"",
    ""originalAccountId"":""divakar.mishra@comm100.com"",
    ""name"":""Divakar"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""Divakar"",
-   ""isBotEnabled"":false,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
+   ""screenName"":""Divakar""
 }",TRUE
-4,Create_Email_POP3_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
+5,Create_Email_POP3_Channel,POST,/ticketing/channelAccounts,Authorization Bearer token Content-Type application/json,,"{
 				""appId"": ""Email"",
 			""originalAccountId"": ""divakar@comm100indiadev.in"",
 			""name"": ""Divakar Mishra"",
@@ -133,84 +115,10 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
 			""isDefault"": false,
 			""emailAccountInfo"": ""{\""Type\"":1,\""UserName\"":\""divakar@comm100indiadev.in\"",\""Password\"":\""0SRBTP1xMMHM3OyQ30vSYQyU2b5UUEUj\"",\""SenderName\"":\""divakar\"",\""ServerAddress\"":\""mail.comm100indiadev.in\"",\""Port\"":995,\""IfSSL\"":true,\""ServerURL\"":\""\"",\""IfSmtpRequiredAuthentication\"":true,\""SmtpServerAddress\"":\""mail.comm100indiadev.in\"",\""SmtpPort\"":465,\""SmtpUserName\"":\""divakar@comm100indiadev.in\"",\""SmtpPassword\"":\""0SRBTP1xMMHM3OyQ30vSYQyU2b5UUEUj\"",\""SmtpEncrytedConnectionType\"":1,\""IfPollSuccess\"":true,\""LastPollTime\"":\""2021-09-17T06:59:13.4844347Z\"",\""FailReason\"":\""\"",\""FirstPollStatus\"":1,\""ContinousErrorCount\"":0}""
 }",201,"{
-   ""id"":""XXX"",
    ""appId"":""Email"",
    ""originalAccountId"":""divakar@comm100indiadev.in"",
    ""name"":""Divakar Mishra"",
-   ""isEnabled"":true,
-   ""isDefault"":false,
-   ""avatarUrl"":"""",
-   ""screenName"":""divakar@comm100indiadev.in"",
-   ""isBotEnabled"":false,
-   ""chatbotId"":""XXX"",
-   ""percentageToBotWhenOnline"":0,
-   ""percentageToBotWhenOffline"":0,
-   ""createdTime"":""XXX"",
-   ""isDeleted"":false
-}",TRUE
-5,Shifts_GET,GET,/livechat/shifts,Authorization Bearer token,,,200,"{
-    ""shifts"": [
-        {
-            ""id"": ""XXX"",
-            ""name"": ""Day Shift"",
-            ""timeZone"": ""India Standard Time"",
-            ""autoDetectDayLightSavingsTime"": false,
-            ""agentIds"": [
-                ""XXX""
-            ],
-            ""departmentIds"": [],
-            ""shiftHolidays"": [
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""name"": ""Day Shift Holiday"",
-                    ""holidayDate"": ""2021-09-21""
-                }
-            ],
-            ""shiftWorkingHours"": [
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""dayOfWeek"": ""Monday"",
-                    ""startTime"": ""09:00:00"",
-                    ""endTime"": ""18:00:00"",
-                    ""agentAwayStatusId"": ""XXX""
-                },
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""dayOfWeek"": ""Tuesday"",
-                    ""startTime"": ""09:00:00"",
-                    ""endTime"": ""18:00:00"",
-                    ""agentAwayStatusId"": ""XXX""
-                },
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""dayOfWeek"": ""Wednesday"",
-                    ""startTime"": ""09:00:00"",
-                    ""endTime"": ""18:00:00"",
-                    ""agentAwayStatusId"": ""XXX""
-                },
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""dayOfWeek"": ""Thursday"",
-                    ""startTime"": ""09:00:00"",
-                    ""endTime"": ""18:00:00"",
-                    ""agentAwayStatusId"": ""XXX""
-                },
-                {
-                    ""id"": ""XXX"",
-                    ""shiftId"": ""XXX"",
-                    ""dayOfWeek"": ""Friday"",
-                    ""startTime"": ""09:00:00"",
-                    ""endTime"": ""18:00:00"",
-                    ""agentAwayStatusId"": ""XXX""
-                }
-            ]
-        }
-    ]
+   ""screenName"":""divakar@comm100indiadev.in""
 }",TRUE
 6,ShiftsConfig_POST_Disable,POST,/livechat/shiftConfig:disable,Authorization Bearer token,siteId siteIdValue,,200,"{
     ""isEnabled"": false
@@ -223,7 +131,6 @@ ScenarioId,ScenarioName,requestType,path,headers,param,requestBody,responseCode,
 }",TRUE
 9,AgentAwayStatuses_GET,GET,/Global/agentAwayStatuses,Authorization Bearer token,siteId siteIdValue,,200,"[
     {
-        ""id"": ""XXX"",
         ""name"": ""Away"",
         ""order"": 1,
         ""isSystem"": true

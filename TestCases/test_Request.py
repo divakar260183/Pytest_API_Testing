@@ -1,7 +1,5 @@
 import json
-
 import requests
-
 from util.utilities import validate_schema, validate_response_data
 
 
