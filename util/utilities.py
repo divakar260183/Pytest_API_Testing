@@ -1,3 +1,5 @@
+import logging
+
 from genson import SchemaBuilder
 from jsonschema import validate
 
@@ -42,9 +44,12 @@ def validate_response_data(actual_data, expected_data):
         data_found.append(True)
     else:
         data_found.append(True)
+    found = True
     for i in range(len(data_found)):
         if data_found[i] is False:
-            assert False, str(i) + "th data is not found in response"
+            logging.error(str(i) + "th data is not found in response")
+            found = False
+    assert found is True, "Data not found"
 
 
 def act_data_compare(actual_data, expected_data):
@@ -83,6 +88,6 @@ def json_compare(actual_json, expected_json):
                 elif actual_json[key] != expected_json[key]:
                     return False
         else:
-            print("Key not found in actual data:", key)
+            logging.error("Key not found in actual data:", key)
             return False
     return True
