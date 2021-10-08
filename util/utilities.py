@@ -79,6 +79,8 @@ def json_compare(actual_json, expected_json):
                             return False
             elif actual_json[key] != expected_json[key]:
                 return False
+            else:
+                print("not list")
         else:
             print("Key not found in actual data:", key)
             return False
