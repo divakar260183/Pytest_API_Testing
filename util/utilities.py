@@ -28,22 +28,23 @@ def validate_schema(actual_data, expected_data):
 
 
 def validate_response_data(actual_data, expected_data):
-    data_found = False
+    data_found = []
     if isinstance(expected_data, list):
         for exp_data in expected_data:
-            data_found = False
             if isinstance(actual_data, list):
-                data_found = act_data_compare(actual_data, exp_data)
+                data_found.append(act_data_compare(actual_data, exp_data))
             elif json_compare(actual_data, exp_data):
-                data_found = True
+                data_found.append(True)
                 break
     elif isinstance(actual_data, list):
-        data_found = act_data_compare(actual_data, expected_data)
+        data_found.append(act_data_compare(actual_data, expected_data))
     elif json_compare(actual_data, expected_data):
-        data_found = True
+        data_found.append(True)
     else:
-        data_found = False
-    assert data_found is True, "Data is not found in response"
+        data_found.append(True)
+    for i in range(len(data_found)):
+        if data_found[i] is False:
+            assert False, str(i) + "th data is not found in response"
 
 
 def act_data_compare(actual_data, expected_data):
@@ -60,27 +61,27 @@ def json_compare(actual_json, expected_json):
         if key in actual_json.keys():
             if isinstance(actual_json[key], dict):
                 json_compare(actual_json[key], expected_json[key])
-            elif isinstance(actual_json[key], list):
-                if not isinstance(expected_json[key], list):
-                    return False
-                else:
-                    for exp_data in expected_json[key]:
-                        matched = True
-                        for act_data in actual_json[key]:
-                            if isinstance(exp_data, dict):
-                                if json_compare(act_data, exp_data):
-                                    matched = True
-                                    break
-                                else:
-                                    matched = False
-                            elif act_data != exp_data:
-                                return False
-                        if matched is False:
-                            return False
-            elif actual_json[key] != expected_json[key]:
-                return False
             else:
-                print("not list")
+                if isinstance(actual_json[key], list):
+                    if not isinstance(expected_json[key], list):
+                        return False
+                    else:
+                        for exp_data in expected_json[key]:
+                            matched = True
+                            for act_data in actual_json[key]:
+                                if isinstance(exp_data, dict):
+                                    if json_compare(act_data, exp_data):
+                                        matched = True
+                                        break
+                                    else:
+                                        matched = False
+                                else:
+                                    if act_data != exp_data:
+                                        return False
+                            if matched is False:
+                                return False
+                elif actual_json[key] != expected_json[key]:
+                    return False
         else:
             print("Key not found in actual data:", key)
             return False
