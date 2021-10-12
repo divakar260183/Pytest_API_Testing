@@ -1,8 +1,11 @@
+import logging
+
 from genson import SchemaBuilder
 from jsonschema import validate
 
-testResults = []
-not_matched_data = []
+Key = None
+actual_value = None
+expected_value = None
 
 
 def get_value_for_key(data_list, key_value):
@@ -32,6 +35,9 @@ def validate_schema(actual_data, expected_data):
 
 def validate_response_data(actual_data, expected_data):
     data_found = []
+    global Key
+    global actual_value
+    global expected_value
     if isinstance(expected_data, list):
         for exp_data in expected_data:
             if isinstance(actual_data, list):
@@ -45,10 +51,14 @@ def validate_response_data(actual_data, expected_data):
         data_found.append(True)
     else:
         data_found.append(True)
-    print("data not matched" + str(not_matched_data))
+    found = True
     for i in range(len(data_found)):
         if data_found[i] is False:
-            assert False, str(i) + "th data is not found in response"
+            logging.error(str(i) + "th data is not found in response")
+            logging.error("Value is not matched for Key :" + Key + " actual value :" + actual_value + " expected value "
+                          + expected_value)
+            found = False
+    assert found is True, "Data not found"
 
 
 def act_data_compare(actual_data, expected_data):
@@ -61,6 +71,9 @@ def act_data_compare(actual_data, expected_data):
 
 
 def json_compare(actual_json, expected_json):
+    global Key
+    global actual_value
+    global expected_value
     for key in expected_json.keys():
         if key in actual_json.keys():
             if isinstance(actual_json[key], dict):
@@ -68,6 +81,7 @@ def json_compare(actual_json, expected_json):
             else:
                 if isinstance(actual_json[key], list):
                     if not isinstance(expected_json[key], list):
+                        logging.error("Actual json is list but expected json is not list")
                         return False
                     else:
                         for exp_data in expected_json[key]:
@@ -81,15 +95,19 @@ def json_compare(actual_json, expected_json):
                                         matched = False
                                 else:
                                     if act_data != exp_data:
+                                        Key = key
+                                        actual_value = act_data
+                                        expected_value = exp_data
                                         return False
                             if matched is False:
                                 return False
                 elif actual_json[key] != expected_json[key]:
-                    not_matched_data.append(
-                        {key: {'actual_value': actual_json[key], 'expected_value': expected_json[key]}})
+                    Key = key
+                    actual_value = actual_json[key]
+                    expected_value = expected_json[key]
                     return False
         else:
-            print("Key not found in actual data:", key)
+            logging.error("Key not found in actual data:", key)
             return False
     return True
 
