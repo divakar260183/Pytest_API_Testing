@@ -2,7 +2,7 @@ import json
 import requests
 from jsondiff import diff
 
-from util.utilities import validate_schema, validate_response_data, validate_response_data_new, match_data
+from util.utilities import validate_schema, validate_response_data, match_data
 
 
 def test_api_request(request_url, request_type, request_header, request_param, request_body,
