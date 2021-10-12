@@ -1,6 +1,8 @@
 import json
 import requests
-from util.utilities import validate_schema, validate_response_data
+from jsondiff import diff
+
+from util.utilities import validate_schema, validate_response_data, validate_response_data_new, match_data
 
 
 def test_api_request(request_url, request_type, request_header, request_param, request_body,
@@ -22,5 +24,5 @@ def test_api_request(request_url, request_type, request_header, request_param, r
         elif request_type == 'DELETE':
             response = requests.delete(request_url)
     assert response.status_code == response_code, "Response Code is not correct"
-    validate_schema(json.loads(response.content), response_schema)
-    validate_response_data(json.loads(response.content), response_schema)
+    assert(match_data(response_schema, json.loads(response.content))), "Expected data is not matched in actual data"
+
