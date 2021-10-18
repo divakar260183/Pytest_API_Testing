@@ -1,7 +1,7 @@
 import json
 import requests
 
-from APITestFramework.util.file_reader import read_test_data_file, read_config_file
+from APITestFramework.util.file_reader import read_config_file
 from APITestFramework.util.utilities import get_value_for_key
 
 
