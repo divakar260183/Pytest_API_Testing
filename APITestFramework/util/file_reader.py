@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 TEST_DATA_BASE_PATH = Path.cwd().joinpath('TestCases')
-CONFIG_DATA_BASE_PATH = Path.cwd().joinpath('APITest')
+CONFIG_DATA_BASE_PATH = Path.cwd().joinpath('APITestFramework/environment')
 
 
 def read_test_data_file(file_name):

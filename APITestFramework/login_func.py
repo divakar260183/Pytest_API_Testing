@@ -13,7 +13,7 @@ class AgentLogin:
 
     def login(self, environment):
         config_data_json_dict = read_config_file('environments.json')
-        user_data_json_dict = read_test_data_file('agents.json')
+        user_data_json_dict = read_config_file('agents.json')
         user_data_json = get_value_for_key(user_data_json_dict['userData'], environment)
         base_url = get_value_for_key(config_data_json_dict['baseURL'], environment)
         request_url = base_url + config_data_json_dict['loginAPIPath']
