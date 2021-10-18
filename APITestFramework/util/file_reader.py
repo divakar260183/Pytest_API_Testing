@@ -3,8 +3,8 @@ import json
 import os
 from pathlib import Path
 
-TEST_DATA_BASE_PATH = Path.cwd().joinpath('testData')
-CONFIG_DATA_BASE_PATH = Path.cwd().joinpath('config')
+TEST_DATA_BASE_PATH = Path.cwd().joinpath('TestCases')
+CONFIG_DATA_BASE_PATH = Path.cwd().joinpath('APITest')
 
 
 def read_test_data_file(file_name):

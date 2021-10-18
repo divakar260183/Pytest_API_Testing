@@ -3,8 +3,8 @@ import json
 import pytest
 
 from login_func import AgentLogin
-from util.file_reader import read_input_file, read_test_data_file, read_config_file
-from util.utilities import get_value_for_key
+from APITestFramework.util.file_reader import read_input_file, read_test_data_file, read_config_file
+from APITestFramework.util.utilities import get_value_for_key
 
 
 def pytest_addoption(parser):
@@ -36,7 +36,7 @@ def login(request):
 
 @pytest.fixture
 def request_url(request, request_data):
-    config_data_json_dict = read_config_file('config.json')
+    config_data_json_dict = read_config_file('environments.json')
     environment = request.config.getoption("--environment")
     base_url = get_value_for_key(config_data_json_dict['baseURL'], environment)
     url = base_url + request_data['path']

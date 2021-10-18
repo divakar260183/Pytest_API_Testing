@@ -1,8 +1,8 @@
 import json
 import requests
 
-from util.file_reader import read_test_data_file, read_config_file
-from util.utilities import get_value_for_key
+from APITestFramework.util.file_reader import read_test_data_file, read_config_file
+from APITestFramework.util.utilities import get_value_for_key
 
 
 class AgentLogin:
@@ -12,8 +12,8 @@ class AgentLogin:
         self.__agent_id = None
 
     def login(self, environment):
-        config_data_json_dict = read_config_file('config.json')
-        user_data_json_dict = read_test_data_file('userData.json')
+        config_data_json_dict = read_config_file('environments.json')
+        user_data_json_dict = read_test_data_file('agents.json')
         user_data_json = get_value_for_key(user_data_json_dict['userData'], environment)
         base_url = get_value_for_key(config_data_json_dict['baseURL'], environment)
         request_url = base_url + config_data_json_dict['loginAPIPath']

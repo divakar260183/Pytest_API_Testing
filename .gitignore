@@ -3,5 +3,5 @@
 /allure-report/
 .idea
 .pytest_cache
-util/__pycache__/
-TestCases/__pycache__/
+APITestFramework/util/__pycache__/
+APITestFramework/__pycache__/
