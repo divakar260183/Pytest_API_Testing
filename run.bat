@@ -1,2 +1,2 @@
 python -m pytest
-allure generate ./allureReports --clean
+allure serve ./allureReports -o ./Reports --clean
