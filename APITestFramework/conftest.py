@@ -111,14 +111,3 @@ def scenario_id(request_data):
     return request_data['ScenarioId']
 
 
-@pytest.fixture(scope='session', autouse=True)
-def cleanup(request):
-    def generate():
-        reports = os.getcwd() + "\\" + str(Path('allureReports'))
-        reports_dir = Path('reports')
-        reports_dir_str = os.getcwd() + "\\" + str(reports_dir)
-        reports_dir.mkdir(parents=True, exist_ok=True)
-        command_generate_allure_report = ['allure generate ' + reports + ' -o '
-                                          + reports_dir_str + ' --clean']
-        subprocess.check_call(command_generate_allure_report, shell=False)
-    request.addfinalizer(generate)
